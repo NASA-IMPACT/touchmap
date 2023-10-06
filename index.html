@@ -116,7 +116,6 @@
 
             INITIAL_CENTER_ZOOM_STYLE.forEach((data, index) => {
                 const mapContainer = document.getElementById(`map${index + 1}`);
-                console.log(index, "indexSuraj");
                 mapContainer.style.width = `${screenWidth / 2}px`;
                 mapContainer.style.height = `${screenHeight / 2}px`;
                 const map = new mapboxgl.Map({
