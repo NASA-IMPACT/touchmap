@@ -78,27 +78,47 @@
         <div id="legend4" class="legend"></div>
     </div>
 </div>
-    <script>
+    <script >
          mapboxgl.accessToken = 'pk.eyJ1IjoiYmluaXRhZ3lhd2FsaSIsImEiOiJjbGluNW5qM3IwOGt5M2hvMXJ6NW9vZno5In0.cQNTdD6Rzt7-zq1GHMe-3w';
          let maps = [];
 
     function loadFullMapScript() {
         const INITIAL_CENTER_ZOOM_STYLE = [
-            { latitude: 46.40, longitude: -115.06, zoom: 4.2, style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m" },
-            { latitude: 46.40, longitude: -82.06, zoom: 4.2, style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m" },
-            { latitude: 29, longitude: -115.06, zoom: 4.2, style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m" },
-            { latitude: 29, longitude: -82.06, zoom: 4.2, style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m" }
+            {
+                latitude: 46.40,
+                longitude: -115.06,
+                zoom: 4.2,
+                style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m"
+            },
+            {
+                latitude: 46.40,
+                longitude: -82.06,
+                zoom: 4.2,
+                style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m"
+            },
+            {
+                latitude: 29,
+                longitude: -115.06,
+                zoom: 4.2,
+                style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m"
+            },
+            {
+                latitude: 29,
+                longitude: -82.06,
+                zoom: 4.2,
+                style: "mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m"
+            }
         ];
-
+        console.log(maps, "maps in index.html")
         const adjustCenter = () => {
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
 
             INITIAL_CENTER_ZOOM_STYLE.forEach((data, index) => {
                 const mapContainer = document.getElementById(`map${index + 1}`);
+                console.log(index, "indexSuraj");
                 mapContainer.style.width = `${screenWidth / 2}px`;
                 mapContainer.style.height = `${screenHeight / 2}px`;
-
                 const map = new mapboxgl.Map({
                     container: `map${index + 1}`,
                     style: data.style,
@@ -116,17 +136,18 @@
                         ];
                     } else {
                         bounds = [
-                            [data.longitude - 15.2, data.latitude -7],
+                            [data.longitude - 15.2, data.latitude - 7],
                             [data.longitude + 18, data.latitude + 4]
                         ];
                     }
-                    map.fitBounds(bounds, { padding: 0 });
-                    maps.push(map);
+                    map.fitBounds(bounds, {padding: 0});
+
                 });
+                maps.push(map);
             });
         };
         adjustCenter();
-            }
+    }
 
     function loadFourMapsScript() {
             const INITIAL_CENTER_ZOOM_STYLE = [[-125.0, 24.0], [-66.0, 49.0]];

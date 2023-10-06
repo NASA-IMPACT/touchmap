@@ -3,8 +3,9 @@ import { getAvailableDatesFromDashboard, formatDateToYYYYMMDD } from './dateMana
 import { renderGradientLegend, renderCategoricalLegend} from "./colormap.js";
 import { updateMapWithRaster} from "./updateurl.js";
 
+
 export function createDropdownOptions(mapIndex) {
-    console.log(mapIndex, "testing 123");
+    console.log(mapIndex, maps, "testing 123");
     const dropdown = document.getElementById(`dropdown${mapIndex}`);
     const layerSelect = dropdown.nextElementSibling.querySelector(`#layers${mapIndex}`);
     const submitButton = dropdown.nextElementSibling.querySelector('.submit');
@@ -111,7 +112,8 @@ export function createDropdownOptions(mapIndex) {
                     const name = selectedCollectionData.name;
 
                     if (available_dates.includes(selected_date) && selected_layer === stacCol) {
-                        console.log(`Updating raster for mapIndex: ${mapIndex}`);
+                        console.log(`Updating raster for mapIndex in dropdown: ${mapIndex}`);
+                        console.log(response1.searchid, "newresponse searchid");
                         const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&colormap_name=${colormapName}&rescale=${rescale[0]}%2C${rescale[1]}&nodata=0`;
                         updateMapWithRaster(url, mapIndex);
                         legendElement.innerHTML = '';
@@ -128,8 +130,8 @@ export function createDropdownOptions(mapIndex) {
                     }
                 } else {
                     legendElement.innerHTML = '';
-                    const url1 = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&nodata=0`;
-                    updateMapWithRaster(url1, mapIndex);
+                    const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&nodata=0`;
+                    updateMapWithRaster(url, mapIndex);
                 }
                 hideDropdownContent(mapIndex);
             });
