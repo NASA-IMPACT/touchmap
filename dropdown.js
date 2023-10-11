@@ -14,6 +14,7 @@ export function createDropdownOptions(mapIndex) {
     var selectTimeFrame, isPeriodic, timeDensity, description;
 
     // Fetch layers and populate dropdown options
+
     fetch("https://staging-stac.delta-backend.com/collections")
         .then(response => response.json())
         .then(response => {
@@ -21,6 +22,7 @@ export function createDropdownOptions(mapIndex) {
                 var opt = document.createElement("option");
                 opt.value = collection.id;
                 opt.label = collection.title;
+                console.log(collection.title , "collections");
                 layerSelect.appendChild(opt);
                 selectTimeFrame = collection.summaries.datetime;
                 isPeriodic = collection["dashboard:is_periodic"];
@@ -84,6 +86,7 @@ export function createDropdownOptions(mapIndex) {
                 console.log(`Submit button clicked for mapIndex: ${mapIndex}`); // log mapIndex when submit button is clicked
                 const selected_layer = layerSelect.value;
                 const selected_date = datePicker.value;
+                // https://staging-raster.delta-backend.com/mosaic/register
                 const rasterUrl = "https://staging-raster.delta-backend.com/mosaic/register";
                 const response1 = await postData(rasterUrl, {
                     collections: [selected_layer],

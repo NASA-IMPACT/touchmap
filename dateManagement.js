@@ -2,7 +2,6 @@ export function getAvailableDatesFromDashboard(collection) {
   const isPeriodic = collection["dashboard:is_periodic"];
   const timeDensity = collection["dashboard:time_density"];
   const summaries = collection.summaries.datetime;
-
   if (!isPeriodic || !summaries) {
     return summaries || null;
   }
