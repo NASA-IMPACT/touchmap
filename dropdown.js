@@ -136,7 +136,7 @@ export function createDropdownOptions(mapIndex) {
                     legendElement.innerHTML = '';
                     const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&nodata=0`;
                     updateMapWithRaster(url, mapIndex);
-                    legendElement.style.display = 'block';
+                    legendElement.style.display = 'none';
                 }
                 hideDropdownContent(mapIndex);
             });
