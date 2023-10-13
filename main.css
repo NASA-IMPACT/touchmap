@@ -7,7 +7,6 @@ html, body {
     background-color: #f5f5f5;
 }
 
-/* Main container for the grid layout */
 #container {
     display: -ms-grid;
     display: grid;
@@ -37,7 +36,6 @@ html, body {
     -ms-grid-column: 3;
 }
 
-/* Styling for the map container */
 .map-container {
     position: relative;
     border-radius: 2px;
@@ -54,7 +52,6 @@ html, body {
     border-radius: 2px;
 }
 
-/* Styling for dropdown menus */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -69,7 +66,6 @@ html, body {
     transition: background-color 0.3s ease;
 }
 
-/* Dropdown content */
 .dropdown-content {
     display: none;
     position: relative;
@@ -177,9 +173,7 @@ html, body {
     transition: color 0.3s ease;
 }
 
-/* Reset button style */
 #reset {
-    /*float: left;*/
     text-align: center;
     background-color: transparent;
     border: none;
@@ -254,7 +248,6 @@ html, body {
     border-radius: 10px;
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: transparent;
 }
 
 .label-text {

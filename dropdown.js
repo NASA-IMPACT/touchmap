@@ -111,16 +111,12 @@ export function createDropdownOptions(mapIndex) {
                     const type = selectedCollectionData.type;
                     const min = selectedCollectionData.min;
                     const max = selectedCollectionData.max;
-                    console.log(type)
                     const colormapScale = selectedCollectionData.stops;
                     console.log(colormapScale, "type")
                     const name = selectedCollectionData.name;
                     const stops = selectedCollectionData.stops;
 
                     if (available_dates.includes(selected_date) && selected_layer === stacCol) {
-
-                        console.log(`Updating raster for mapIndex in dropdown: ${mapIndex}`);
-                        console.log(response1.searchid, "newresponse searchid");
                         const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&colormap_name=${colormapName}&rescale=${rescale[0]}%2C${rescale[1]}&nodata=0`;
                         updateMapWithRaster(url, mapIndex);
                         legendElement.innerHTML = '';
