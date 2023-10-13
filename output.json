@@ -7,6 +7,8 @@
     ],
     "nodata": "nan",
     "type": "categorical",
+    "min": null,
+    "max": null,
     "stops": [
       {
         "color": "#94c772",
@@ -32,6 +34,8 @@
     "rescale": null,
     "nodata": null,
     "type": null,
+    "min": null,
+    "max": null,
     "stops": null,
     "name": "Fire Perimeter"
   },
@@ -43,6 +47,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#ffffe5",
       "#e5f5ac",
@@ -61,6 +67,8 @@
     ],
     "nodata": 65535,
     "type": null,
+    "min": null,
+    "max": null,
     "stops": null,
     "name": "Stream network across the Contiguous United States"
   },
@@ -72,6 +80,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#f7fcf5",
       "#d3eecd",
@@ -90,6 +100,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-0.31",
+    "max": "0.31",
     "stops": [
       "#EF8A62",
       "#F7F7F7",
@@ -105,6 +117,8 @@
     ],
     "nodata": null,
     "type": "categorical",
+    "min": null,
+    "max": null,
     "stops": [
       {
         "color": "#94c772",
@@ -133,6 +147,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 46428019752,
     "stops": [
       "#60007d",
       "#30137d",
@@ -152,6 +168,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "Less",
+    "max": "More",
     "stops": [
       "#0d0887",
       "#7e03a8",
@@ -169,6 +187,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-0.6",
+    "max": "0.6",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -187,6 +207,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-1.0",
+    "max": "1.0",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -205,6 +227,8 @@
     ],
     "nodata": "nan",
     "type": "gradient",
+    "min": "-60%",
+    "max": "+60%",
     "stops": [
       "#CA171C",
       "#DE6158",
@@ -226,6 +250,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "0.0001",
     "stops": [
       "#440154",
       "#3b528b",
@@ -240,6 +266,8 @@
     "rescale": null,
     "nodata": null,
     "type": null,
+    "min": null,
+    "max": null,
     "stops": null,
     "name": "HLS Landsat SWIR"
   },
@@ -251,6 +279,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#f7fbff",
       "#d0e1f2",
@@ -269,6 +299,8 @@
     ],
     "nodata": null,
     "type": null,
+    "min": null,
+    "max": null,
     "stops": null,
     "name": "Nightlights EJ"
   },
@@ -280,6 +312,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1000",
     "stops": [
       "#F7FBFF",
       "#D0E1F2",
@@ -298,6 +332,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#313695",
       "#74add1",
@@ -313,6 +349,8 @@
     "rescale": null,
     "nodata": null,
     "type": "categorical",
+    "min": null,
+    "max": null,
     "stops": [
       {
         "color": "#3A8DC6",
@@ -353,6 +391,8 @@
     ],
     "nodata": "nan",
     "type": "gradient",
+    "min": "1",
+    "max": "1100",
     "stops": [
       "#FBB41A",
       "#BB3754",
@@ -369,6 +409,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#fff5eb",
       "#fdd9b4",
@@ -387,6 +429,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 3715968204,
     "stops": [
       "#60007d",
       "#30137d",
@@ -406,6 +450,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 2022634652958,
     "stops": [
       "#60007d",
       "#30137d",
@@ -425,6 +471,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#fcfbfd",
       "#e2e2ef",
@@ -443,6 +491,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "Less",
+    "max": "More",
     "stops": [
       "#3A88BD",
       "#C9E0ED",
@@ -460,6 +510,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 282207914557,
     "stops": [
       "#60007d",
       "#30137d",
@@ -479,6 +531,8 @@
     ],
     "nodata": null,
     "type": null,
+    "min": null,
+    "max": null,
     "stops": null,
     "name": "Blue tarp detections"
   },
@@ -490,6 +544,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": 0,
+    "max": 1500,
     "stops": [
       "#000083",
       "#003caa",
@@ -508,6 +564,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "< 408 ppm",
+    "max": "> 419 ppm",
     "stops": [
       "#4575b4",
       "#91bfdb",
@@ -527,6 +585,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": 0,
+    "max": 100,
     "stops": [
       "#440154",
       "#3b528b",
@@ -544,6 +604,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-5.5",
+    "max": "+5.5",
     "stops": [
       "#207BBD",
       "#5EA4D1",
@@ -565,6 +627,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "69",
     "stops": [
       "#ffffcc",
       "#fee187",
@@ -583,6 +647,8 @@
     ],
     "nodata": 9999.0,
     "type": "gradient",
+    "min": "0",
+    "max": "100",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -601,6 +667,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-0.6",
+    "max": "0.6",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -619,6 +687,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "93",
     "stops": [
       "#FBB41A",
       "#BB3754",
@@ -635,6 +705,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 963867416985,
     "stops": [
       "#60007d",
       "#30137d",
@@ -654,6 +726,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "-200",
+    "max": "200",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -672,6 +746,8 @@
     ],
     "nodata": "nan",
     "type": "gradient",
+    "min": "-100%",
+    "max": "+100%",
     "stops": [
       "#670220",
       "#D65F4D",
@@ -690,6 +766,8 @@
     ],
     "nodata": -9999.0,
     "type": "gradient",
+    "min": "-20",
+    "max": "20",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -708,6 +786,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "Less",
+    "max": "More",
     "stops": [
       "#ffffff",
       "#e5c7bb",
@@ -727,6 +807,8 @@
     "rescale": null,
     "nodata": null,
     "type": "categorical",
+    "min": null,
+    "max": null,
     "stops": [
       {
         "color": "#000000",
@@ -759,6 +841,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "0",
+    "max": "1",
     "stops": [
       "#ffffd9",
       "#d6efb3",
@@ -777,6 +861,8 @@
     ],
     "nodata": null,
     "type": "gradient",
+    "min": "Less",
+    "max": "More",
     "stops": [
       "#08041d",
       "#1f0a46",
@@ -794,6 +880,8 @@
     ],
     "nodata": -9999,
     "type": "gradient",
+    "min": "-1",
+    "max": "1",
     "stops": [
       "#a50026",
       "#f46d43",
@@ -812,6 +900,8 @@
     ],
     "nodata": 0,
     "type": "gradient",
+    "min": 0,
+    "max": 9190181437440,
     "stops": [
       "#60007d",
       "#30137d",
@@ -831,6 +921,8 @@
     ],
     "nodata": -9999,
     "type": "gradient",
+    "min": "-1",
+    "max": "1",
     "stops": [
       "#a50026",
       "#f46d43",

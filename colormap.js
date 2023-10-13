@@ -26,33 +26,34 @@ export function renderCategoricalLegend(legendElement, stops) {
     legendElement.appendChild(legendItemContainer);
 }
 
-export function renderGradientLegend(legendElement, colormapScale, rescale) {
-    const stops = colormapScale;
-    const min = rescale[0];
-    const max = rescale[1];
-    const range = max - min;
 
+export function renderGradientLegend(legendElement, colormapScale, rescale, min, max) {
+
+    const gradientStops = colormapScale.map(color => color).join(', ');
+
+    // Create container for the gradient and labels
     const legendItemContainer = document.createElement('div');
     legendItemContainer.className = 'legend-item-container';
 
-    stops.forEach((stopColor, index) => {
-        const value = min + (index / (stops.length - 1)) * range;
-        const item = document.createElement('div');
-        item.className = 'legend-item';
+    // Create gradient box
+    const gradientBox = document.createElement('div');
+    gradientBox.className = 'color-box';
+    gradientBox.style.background = `linear-gradient(to right, ${gradientStops})`;
 
-        const colorBox = document.createElement('span');
-        colorBox.className = 'color-box';
-        colorBox.style.backgroundColor = stopColor;
+    // Create labels
+    const minLabel = document.createElement('span');
+    minLabel.className = 'label-text';
+    minLabel.textContent = min;
 
-        const labelSpan = document.createElement('span');
-        labelSpan.className = 'label-text';
-        labelSpan.textContent = value.toFixed(2);
+    const maxLabel = document.createElement('span');
+    maxLabel.className = 'label-text';
+    maxLabel.textContent = max;
 
-        item.appendChild(colorBox);
-        item.appendChild(labelSpan);
-
-        legendItemContainer.appendChild(item);
-    });
+    // Append elements
+    legendItemContainer.appendChild(minLabel);
+    legendItemContainer.appendChild(gradientBox);
+    legendItemContainer.appendChild(maxLabel);
 
     legendElement.appendChild(legendItemContainer);
 }
+

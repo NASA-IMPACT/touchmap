@@ -109,12 +109,16 @@ export function createDropdownOptions(mapIndex) {
                     const rescale = selectedCollectionData.rescale;
                     const stacCol = selected_layer;
                     const type = selectedCollectionData.type;
+                    const min = selectedCollectionData.min;
+                    const max = selectedCollectionData.max;
                     console.log(type)
                     const colormapScale = selectedCollectionData.stops;
                     console.log(colormapScale, "type")
                     const name = selectedCollectionData.name;
+                    const stops = selectedCollectionData.stops;
 
                     if (available_dates.includes(selected_date) && selected_layer === stacCol) {
+
                         console.log(`Updating raster for mapIndex in dropdown: ${mapIndex}`);
                         console.log(response1.searchid, "newresponse searchid");
                         const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&colormap_name=${colormapName}&rescale=${rescale[0]}%2C${rescale[1]}&nodata=0`;
@@ -124,26 +128,34 @@ export function createDropdownOptions(mapIndex) {
                         stacColParagraph.className = 'legend-stacCol';
                         stacColParagraph.textContent = `${name} - ${selected_date}`;
                         legendElement.appendChild(stacColParagraph);
+                        legendElement.style.display = 'block';
 
                         if (type === "categorical") {
                             renderCategoricalLegend(legendElement, stops);
                         } else if (type === "gradient") {
-                            renderGradientLegend(legendElement, colormapScale, rescale);
+                            renderGradientLegend(legendElement, colormapScale, rescale, min, max);
                         }
                     }
                 } else {
                     legendElement.innerHTML = '';
                     const url = `https://staging-raster.delta-backend.com/mosaic/tiles/${response1.searchid}/WebMercatorQuad/{z}/{x}/{y}@1x?assets=cog_default&nodata=0`;
                     updateMapWithRaster(url, mapIndex);
+                    legendElement.style.display = 'block';
                 }
                 hideDropdownContent(mapIndex);
             });
+        $(document).ready(function() {
+            $(".legend").draggable({
+                containment: 'parent',
+                scroll: false
+            }).resizable({
+                containment: 'parent',
+                handles: 'se'
+            });
+        });
 }
-
 
 export function hideDropdownContent(mapIndex) {
         const dropdownContent = document.querySelector(`#dropdown${mapIndex} + .dropdown-content`);
         dropdownContent.style.display = 'none';
     }
-
-

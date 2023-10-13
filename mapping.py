@@ -19,10 +19,12 @@ def extract_info_from_mdx(mdx_content):
             stacCol = layers_data[0].get('stacCol', None)
             name = layers_data[0].get('name', None)
             type = legend.get('type', None)
+            min = legend.get('min', None)
+            max = legend.get('max', None)
             stops = legend.get('stops', None)
             break
 
-    return colormap_name, rescale, nodata, type, stops, stacCol, name
+    return colormap_name, rescale, nodata, type, min, max,  stops, stacCol, name
 
 def process_mdx_file(file_path):
     with open(file_path, 'r') as f:
@@ -36,8 +38,8 @@ result = {}
 for file in mdx_files:
     file_name = os.path.splitext(file)[0]
     file_path = os.path.join(mdx_files_directory, file)
-    colormap_name, rescale, nodata,type, stops, stacCol, name = process_mdx_file(file_path)
-    result[stacCol] = {"colormap": colormap_name, "rescale": rescale, "nodata": nodata, "type": type, "stops": stops, "name":name}
+    colormap_name, rescale, nodata, type, min, max, stops, stacCol, name = process_mdx_file(file_path)
+    result[stacCol] = {"colormap": colormap_name, "rescale": rescale, "nodata": nodata, "type": type, "min": min, "max": max, "stops": stops, "name":name}
 
 output_file = 'output.json'
 with open(output_file, 'w') as json_file:
