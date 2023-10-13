@@ -35,6 +35,7 @@ function removeMapsAndCleanLegends() {
         const legendElement = document.getElementById(`legend${i}`);
         if (legendElement) {
             legendElement.innerHTML = '';
+            legendElement.style.display = 'none';
         }
     }
 }
