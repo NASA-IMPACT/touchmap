@@ -17,6 +17,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
 
 </head>
 <body>
@@ -39,7 +41,10 @@
             </div>
         </div>
         <div id="legend1" class="legend">
-            <div class="resizable-handle"></div>
+            <button class="info-button">i</button>
+        </div>
+        <div class="tooltip" id="infoTooltip1">
+            <p class = "tooltipcontent" id="tooltipContent1"></p>
         </div>
     </div>
     <div class="map-container">
@@ -54,7 +59,12 @@
                 </div>
             </div>
         </div>
-        <div id="legend2" class="legend"></div>
+        <div id="legend2" class="legend">
+            <button class="info-button">i</button>
+        </div>
+        <div class="tooltip" id="infoTooltip2">
+            <p class = "tooltipcontent" id="tooltipContent2"></p>
+        </div>
     </div>
     <div class="map-container">
         <div id="map3" class="map"></div>
@@ -68,7 +78,12 @@
                 </div>
             </div>
         </div>
-        <div id="legend3" class="legend"></div>
+        <div id="legend3" class="legend">
+            <button class="info-button">i</button>
+        </div>
+        <div class="tooltip" id="infoTooltip3">
+            <p class = "tooltipcontent" id="tooltipContent3"></p>
+        </div>
     </div>
     <div class="map-container">
         <div id="map4" class="map"></div>
@@ -82,7 +97,12 @@
                 </div>
             </div>
         </div>
-        <div id="legend4" class="legend"></div>
+        <div id="legend4" class="legend">
+            <button class="info-button">i</button>
+        </div>
+        <div class="tooltip" id="infoTooltip4">
+            <p class = "tooltipcontent" id="tooltipContent4"></p>
+        </div>
     </div>
 </div>
     <script >
@@ -128,12 +148,12 @@
                     container: `map${index + 1}`,
                     style: data.style,
                     minZoom: 3.5,
-                    attributionControl: false
+                    attributionControl: index === 3
                 });
+
 
                 map.on('load', () => {
                     let bounds;
-
                     if (index < 2) {
                         bounds = [
                             [data.longitude - 15.2, data.latitude - 1],

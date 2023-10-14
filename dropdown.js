@@ -2,6 +2,7 @@ import { postData } from './utils.js';
 import { getAvailableDatesFromDashboard, formatDateToYYYYMMDD } from './dateManagement.js';
 import { renderGradientLegend, renderCategoricalLegend} from "./colormap.js";
 import { updateMapWithRaster} from "./updateurl.js";
+import {setupTooltip} from "./infobox.js";
 
 
 export function createDropdownOptions(mapIndex) {
@@ -11,6 +12,11 @@ export function createDropdownOptions(mapIndex) {
     const submitButton = dropdown.nextElementSibling.querySelector('.submit');
     const legendElement = document.getElementById(`legend${mapIndex}`);
     const datePicker = dropdown.nextElementSibling.querySelector(`#datePicker${mapIndex}`);
+    const tooltip = document.getElementById(`infoTooltip${mapIndex}`);
+    const tooltipContent = document.getElementById(`tooltipContent${mapIndex}`);
+    const infoButton = document.querySelector('.info-button');
+
+
     var selectTimeFrame, isPeriodic, timeDensity, description;
 
     // Fetch layers and populate dropdown options
@@ -124,13 +130,20 @@ export function createDropdownOptions(mapIndex) {
                         stacColParagraph.className = 'legend-stacCol';
                         stacColParagraph.textContent = `${name} - ${selected_date}`;
                         legendElement.appendChild(stacColParagraph);
+
+                        const infoButton = document.createElement('span');
+                        infoButton.className = 'info-button';
+                        infoButton.textContent = '\u2139';
+                        stacColParagraph.appendChild(infoButton);
                         legendElement.style.display = 'block';
+                        infoButton.style.display="block";
 
                         if (type === "categorical") {
                             renderCategoricalLegend(legendElement, stops);
                         } else if (type === "gradient") {
                             renderGradientLegend(legendElement, colormapScale, rescale, min, max);
                         }
+                        setupTooltip(infoButton, layerSelect, mapIndex);
                     }
                 } else {
                     legendElement.innerHTML = '';
@@ -155,3 +168,6 @@ export function hideDropdownContent(mapIndex) {
         const dropdownContent = document.querySelector(`#dropdown${mapIndex} + .dropdown-content`);
         dropdownContent.style.display = 'none';
     }
+
+
+

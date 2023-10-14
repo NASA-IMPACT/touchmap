@@ -153,7 +153,7 @@ html, body {
     -o-transition: background-color 0.3s ease;
     transition: background-color 0.3s ease;
 }
-/* Menu styling */
+
 #menu {
     text-align: center;
     background-color: black;
@@ -212,7 +212,6 @@ html, body {
     resize: both;
     overflow: auto;
     text-align: center;
-
 }
 
 .legend-item {
@@ -269,3 +268,45 @@ html, body {
     -webkit-box-shadow: 0 0 4px rgba(76, 175, 80, 0.8);
             box-shadow: 0 0 4px rgba(76, 175, 80, 0.8);
 }
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    transition: background-color 0.3s;
+}
+
+
+.info-button {
+    float: right;
+    display: inline-block;
+    border: 2px solid ;
+    border-radius: 50%;
+    text-align: center;
+    background-color: lightgray;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+}
+
+.info-button:hover {
+    background-color: #f5f5f5;  // Slight background color change on hover
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it appears above other elements */
+    max-width: 300px; /* You can adjust this value */
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+#infoButton:hover + .tooltip {
+    display: block;
+}
+
