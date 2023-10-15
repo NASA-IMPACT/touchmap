@@ -129,7 +129,7 @@ export function createDropdownOptions(mapIndex) {
 
                         if (type === "categorical") {
                             renderCategoricalLegend(legendElement, stops);
-                             setupTooltip(infoButton, selected_layer, mapIndex);
+                             setupTooltip(infoButton, layerSelect, mapIndex);
                         } else if (type === "gradient") {
                             renderGradientLegend(legendElement, colormapScale, rescale, min, max);
                              setupTooltip(infoButton, layerSelect, mapIndex);
