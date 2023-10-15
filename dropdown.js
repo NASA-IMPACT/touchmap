@@ -6,20 +6,12 @@ import {setupTooltip} from "./infobox.js";
 
 
 export function createDropdownOptions(mapIndex) {
-    console.log(mapIndex, maps, "testing 123");
     const dropdown = document.getElementById(`dropdown${mapIndex}`);
     const layerSelect = dropdown.nextElementSibling.querySelector(`#layers${mapIndex}`);
     const submitButton = dropdown.nextElementSibling.querySelector('.submit');
     const legendElement = document.getElementById(`legend${mapIndex}`);
     const datePicker = dropdown.nextElementSibling.querySelector(`#datePicker${mapIndex}`);
-    const tooltip = document.getElementById(`infoTooltip${mapIndex}`);
-    const tooltipContent = document.getElementById(`tooltipContent${mapIndex}`);
-    const infoButton = document.querySelector('.info-button');
-
-
     var selectTimeFrame, isPeriodic, timeDensity, description;
-
-    // Fetch layers and populate dropdown options
 
     fetch("https://staging-stac.delta-backend.com/collections")
         .then(response => response.json())
@@ -48,7 +40,6 @@ export function createDropdownOptions(mapIndex) {
         });
 
     let available_dates = [];
-
     layerSelect.addEventListener("change", () => {
         const selectedOption = layerSelect.options[layerSelect.selectedIndex];
         let available_dates_str = selectedOption.getAttribute('data-select-timeframe');
@@ -92,7 +83,6 @@ export function createDropdownOptions(mapIndex) {
                 console.log(`Submit button clicked for mapIndex: ${mapIndex}`); // log mapIndex when submit button is clicked
                 const selected_layer = layerSelect.value;
                 const selected_date = datePicker.value;
-                // https://staging-raster.delta-backend.com/mosaic/register
                 const rasterUrl = "https://staging-raster.delta-backend.com/mosaic/register";
                 const response1 = await postData(rasterUrl, {
                     collections: [selected_layer],
@@ -136,14 +126,14 @@ export function createDropdownOptions(mapIndex) {
                         infoButton.textContent = '\u2139';
                         stacColParagraph.appendChild(infoButton);
                         legendElement.style.display = 'block';
-                        infoButton.style.display="block";
 
                         if (type === "categorical") {
                             renderCategoricalLegend(legendElement, stops);
+                             setupTooltip(infoButton, selected_layer, mapIndex);
                         } else if (type === "gradient") {
                             renderGradientLegend(legendElement, colormapScale, rescale, min, max);
+                             setupTooltip(infoButton, layerSelect, mapIndex);
                         }
-                        setupTooltip(infoButton, layerSelect, mapIndex);
                     }
                 } else {
                     legendElement.innerHTML = '';

@@ -57,7 +57,7 @@ function removeMapsAndCleanLegends() {
         alert("Please note that, if you reset the map then other users might be affected");
         if (currentView === 'fullMap') {
             removeMapsAndCleanLegends();
-           loadFullMapScript()
+            loadFullMapScript()
         } else if (currentView === 'fourMaps') {
             removeMapsAndCleanLegends();
             loadFourMapsScript();

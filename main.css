@@ -19,22 +19,6 @@ html, body {
     grid-gap: 1px;
     padding: 2px;
 }
-#container > *:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-}
-#container > *:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-}
-#container > *:nth-child(3) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-}
-#container > *:nth-child(4) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 3;
-}
 
 .map-container {
     position: relative;
@@ -157,14 +141,14 @@ html, body {
 #menu {
     text-align: center;
     background-color: black;
-    width: 99.9%;
+    width: 99.8%;
     height:3%;
     padding: 2px;
 }
 
 #menu a {
     display: inline-block;
-    margin: 0 10px;
+    margin: 5px 6px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -186,7 +170,7 @@ html, body {
 }
 
 .vertical-line {
-    width: 1px;
+    /*width: 1px;*/
     height: 30px;
     background-color: #555;
     margin: 0 10px;
@@ -196,7 +180,7 @@ html, body {
     position: relative;
     bottom: 20px;
     left: 20px;
-    background-color: #ffffff;
+    background-color: whitesmoke;
     border: 1px solid #e0e0e0;
     padding: 5px;
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
@@ -274,9 +258,10 @@ input[type="text"] {
     border: 1px solid #cccccc;
     border-radius: 5px;
     background-color: #f8f8f8;
+    -webkit-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
     transition: background-color 0.3s;
 }
-
 
 .info-button {
     float: right;
@@ -290,23 +275,24 @@ input[type="text"] {
 }
 
 .info-button:hover {
-    background-color: #f5f5f5;  // Slight background color change on hover
+    background-color: darkgrey;
 }
 
 .tooltip {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: whitesmoke;
     border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it appears above other elements */
-    max-width: 300px; /* You can adjust this value */
+    padding: 4px;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 450px;
     font-family: 'Arial', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
+    overflow: visible;
 }
 
 #infoButton:hover + .tooltip {
     display: block;
 }
-

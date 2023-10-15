@@ -6,6 +6,10 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
     const tooltipContent = document.getElementById(`tooltipContent${mapIndex}`);
     let tooltipVisible = false;
 
+    if (!tooltip || !tooltipContent) {
+        console.error(`Elements not found for mapIndex: ${mapIndex}`);
+    }
+
     if (infoButtonClickListener) {
         infoButton.removeEventListener('click', infoButtonClickListener);
     }
@@ -13,9 +17,9 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
     infoButtonClickListener = function(event) {
         const selectedOption = layerSelect.options[layerSelect.selectedIndex];
         const descriptionText = selectedOption.getAttribute('data-description');
-        console.log(descriptionText, "description");
 
         tooltipContent.textContent = descriptionText;
+        console.log(tooltipContent.textContent, "description", mapIndex, "mapindex");
 
         const mapContainer = infoButton.closest('.map-container');
         const legend = mapContainer.querySelector('.legend');
@@ -25,10 +29,12 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
             tooltip.style.display = 'none';
         } else {
             tooltip.style.display = 'block';
-            tooltip.style.top = (legendRect.bottom + 10) + 'px';
+            tooltip.style.display = (legendRect.bottom) + 'px';
         }
 
         tooltipVisible = !tooltipVisible;
+        console.log(tooltip.style.display, tooltipContent);
+
     };
 
     infoButton.addEventListener('click', infoButtonClickListener);
@@ -46,6 +52,3 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
 
     document.addEventListener('click', documentClickListener);
 }
-
-
-
