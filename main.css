@@ -296,3 +296,28 @@ input[type="text"] {
 #infoButton:hover + .tooltip {
     display: block;
 }
+
+/* Media query based on width */
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    display: none;
+  }
+}
+
+@media (max-height: 600px) {
+  .container {
+    display: none;
+  }
+}
+
+@media (min-height: 601px) {
+  .container {
+    display: none;
+  }
+}
