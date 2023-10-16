@@ -172,7 +172,9 @@
             });
         };
         adjustCenter();
+        window.addEventListener('resize', adjustCenter);
     }
+
 
     function loadFourMapsScript() {
             const INITIAL_CENTER_ZOOM_STYLE = [[-125.0, 24.0], [-66.0, 49.0]];

@@ -52,3 +52,4 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
 
     document.addEventListener('click', documentClickListener);
 }
+
