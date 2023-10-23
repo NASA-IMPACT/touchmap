@@ -276,24 +276,32 @@ input[type="text"] {
     background-color: darkgrey;
 }
 
-.tooltip {
-    display: none;
-    position: absolute;
-    background-color: whitesmoke;
+.description {
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #ffffff;
     border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 4px;
-    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    max-width: 500px;
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    overflow: visible;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-#infoButton:hover + .tooltip {
+.description:hover {
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description::before {
+    content: 'Details:';
+    font-weight: bold;
     display: block;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {

@@ -2,8 +2,6 @@ import { postData } from './utils.js';
 import { getAvailableDatesFromDashboard, formatDateToYYYYMMDD } from './dateManagement.js';
 import { renderGradientLegend, renderCategoricalLegend} from "./colormap.js";
 import { updateMapWithRaster} from "./updateurl.js";
-// import {setupTooltip} from "./infobox.js";
-
 
 export function createDropdownOptions(mapIndex) {
     const dropdown = document.getElementById(`dropdown${mapIndex}`);
@@ -120,7 +118,6 @@ export function createDropdownOptions(mapIndex) {
                         stacColParagraph.className = 'legend-stacCol';
                         stacColParagraph.textContent = `${name} - ${selected_date}`;
                         legendElement.appendChild(stacColParagraph);
-
 
                         const infoButton = document.createElement('span');
                         infoButton.className = 'info-button';
