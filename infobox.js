@@ -4,6 +4,7 @@ let documentClickListener;
 export function setupTooltip(infoButton, layerSelect, mapIndex) {
     const tooltip = document.getElementById(`infoTooltip${mapIndex}`);
     const tooltipContent = document.getElementById(`tooltipContent${mapIndex}`);
+    console.log(tooltipContent, "tooltip content");
     let tooltipVisible = false;
 
     if (!tooltip || !tooltipContent) {
@@ -52,4 +53,3 @@ export function setupTooltip(infoButton, layerSelect, mapIndex) {
 
     document.addEventListener('click', documentClickListener);
 }
-

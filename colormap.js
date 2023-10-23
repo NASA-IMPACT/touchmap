@@ -23,7 +23,6 @@ export function renderCategoricalLegend(legendElement, stops) {
         legendItemContainer.appendChild(labelSpan);
 
     });
-
     legendElement.appendChild(legendItemContainer);
 }
 
@@ -53,4 +52,3 @@ export function renderGradientLegend(legendElement, colormapScale, rescale, min,
 
     legendElement.appendChild(legendItemContainer);
 }
-
