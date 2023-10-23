@@ -2,7 +2,7 @@ import { postData } from './utils.js';
 import { getAvailableDatesFromDashboard, formatDateToYYYYMMDD } from './dateManagement.js';
 import { renderGradientLegend, renderCategoricalLegend} from "./colormap.js";
 import { updateMapWithRaster} from "./updateurl.js";
-import {setupTooltip} from "./infobox.js";
+// import {setupTooltip} from "./infobox.js";
 
 
 export function createDropdownOptions(mapIndex) {
@@ -121,18 +121,32 @@ export function createDropdownOptions(mapIndex) {
                         stacColParagraph.textContent = `${name} - ${selected_date}`;
                         legendElement.appendChild(stacColParagraph);
 
+
                         const infoButton = document.createElement('span');
                         infoButton.className = 'info-button';
                         infoButton.textContent = '\u2139';
                         stacColParagraph.appendChild(infoButton);
                         legendElement.style.display = 'block';
 
+                    infoButton.addEventListener('click', () => {
+                        const selectedOption = layerSelect.options[layerSelect.selectedIndex];
+                        const descriptionElem = legendElement.querySelector('.description');
+
+                        if (descriptionElem) {
+                            descriptionElem.remove();
+                        } else {
+                            const description = selectedOption.getAttribute('data-description');
+                            const descriptionParagraph = document.createElement('p');
+                            descriptionParagraph.className = 'description';
+                            descriptionParagraph.textContent = description;
+                            legendElement.appendChild(descriptionParagraph);
+                        }
+                    });
+
                         if (type === "categorical") {
                             renderCategoricalLegend(legendElement, stops);
-                             setupTooltip(infoButton, layerSelect, mapIndex);
                         } else if (type === "gradient") {
                             renderGradientLegend(legendElement, colormapScale, rescale, min, max);
-                             setupTooltip(infoButton, layerSelect, mapIndex);
                         }
                     }
                 } else {
