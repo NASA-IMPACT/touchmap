@@ -278,18 +278,20 @@ input[type="text"] {
 
 .description {
     padding: 10px 15px;
-    margin-top: 10px;
+    margin-top: 5px;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    font-size: 15px;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.2;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    text-align: justify;
 }
 
 .description:hover {
@@ -298,10 +300,12 @@ input[type="text"] {
 }
 
 .description::before {
-    content: 'Details:';
+    content: 'Description:';
+    text-decoration: #333333;
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
