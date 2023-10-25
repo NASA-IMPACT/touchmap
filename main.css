@@ -264,6 +264,7 @@ input[type="text"] {
 .info-button {
     float: right;
     display: inline-block;
+    padding: 3px 5px;
     border: 2px solid ;
     border-radius: 50%;
     text-align: center;
