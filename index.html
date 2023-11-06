@@ -97,7 +97,7 @@
          var maps = [];
 
     function loadFullMapScript() {
-        const INITIAL_CENTER_ZOOM_STYLE = [
+        const BOUNDING_BOX = [
             {
                 latitude: 46.40,
                 longitude: -115.06,
@@ -128,7 +128,7 @@
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
 
-            INITIAL_CENTER_ZOOM_STYLE.forEach((data, index) => {
+            BOUNDING_BOX.forEach((data, index) => {
                 const mapContainer = document.getElementById(`map${index + 1}`);
                 mapContainer.style.width = `${screenWidth / 2}px`;
                 mapContainer.style.height = `${screenHeight / 2}px`;
@@ -150,7 +150,7 @@
                     } else {
                         bounds = [
                             [data.longitude - 15.2, data.latitude - 7],
-                            [data.longitude + 18, data.latitude + 4]
+                            [data.longitude + 18, data.latitude + 5.5]
                         ];
                     }
                     map.fitBounds(bounds, {padding: 0});
@@ -164,7 +164,7 @@
     }
 
     function loadFourMapsScript() {
-            const INITIAL_CENTER_ZOOM_STYLE = [[-125.0, 24.0], [-66.0, 49.0]];
+            const BOUNDING_BOX = [[-125.0, 24.0], [-66.0, 49.0]];
             for (let index = 0; index < 4; index++) {
                 const map = new mapboxgl.Map({
                     container: 'map' + (index + 1),
@@ -172,7 +172,7 @@
                     minZoom: 3.1,
                     attributionControl: index === 3
                 });
-                map.fitBounds(INITIAL_CENTER_ZOOM_STYLE, {padding: 20});
+                map.fitBounds(BOUNDING_BOX, {padding: 20});
                 maps.push(map);
             }
     }
