@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Veda data on a webpage</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+</head>
+<body>
+    <div id="menu">
+        <a href="#" id="fullMapBtn">Full map</a>
+        <span id="reset" class="reset-btn"><i class="fas fa-undo"></i></span>
+        <a href="#" id="fourMapsBtn">Four maps</a>
+    </div>
+    <div id="container">
+    <div class="map-container">
+        <div id="map1" class="map"></div>
+        <div class="button-container left">
+            <div class="dropdown">
+                <button id="dropdown1" class="dropbtn">Veda Data</button>
+                <div class="dropdown-content">
+                    <select id="layers1" multiple></select>
+                    <input type="text" id="datePicker1" placeholder="Select a date">
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div id="legend1" class="legend">
+            <button class="info-button">i</button>
+            </div>
+        </div>
+        <div class="map-container">
+        <div id="map2" class="map"></div>
+        <div class="button-container right">
+            <div class="dropdown">
+                <button id="dropdown2" class="dropbtn">Veda Data</button>
+                <div class="dropdown-content">
+                    <select id="layers2" multiple></select>
+                    <input type="text" id="datePicker2" placeholder="Select a date">
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div id="legend2" class="legend">
+            <button class="info-button">i</button>
+        </div>
+    </div>
+     <div class="map-container">
+        <div id="map3" class="map"></div>
+        <div class="button-container left">
+            <div class="dropdown">
+                <button id="dropdown3" class="dropbtn">Veda Data</button>
+                <div class="dropdown-content">
+                    <select id="layers3" multiple></select>
+                    <input type="text" id="datePicker3" placeholder="Select a date">
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div id="legend3" class="legend">
+            <button class="info-button">i</button>
+        </div>
+    </div>
+    <div class="map-container">
+        <div id="map4" class="map"></div>
+        <div class="button-container right">
+            <div class="dropdown">
+                <button id="dropdown4" class="dropbtn">Veda Data</button>
+                <div class="dropdown-content">
+                    <select id="layers4" multiple></select>
+                    <input type="text" id="datePicker4" placeholder="Select a date">
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div id="legend4" class="legend">
+            <button class="info-button">i</button>
+        </div>
+    </div>
+</div>
+        <script src="browser.js"></script>
+
+    <script >
+         mapboxgl.accessToken = 'pk.eyJ1IjoiYmluaXRhZ3lhd2FsaSIsImEiOiJjbGluNW5qM3IwOGt5M2hvMXJ6NW9vZno5In0.cQNTdD6Rzt7-zq1GHMe-3w';
+         var maps = [];
+         
+    function loadFullMapScript() {
+        const browser = getBrowser();
+        function getBrowser() {
+        const userAgent = navigator.userAgent;
+        if (userAgent.includes("Chrome")) {
+            return "Chrome";
+        } else if (userAgent.includes("Safari")) {
+            return "Safari";
+        } else if (userAgent.includes("Edg")) {
+            return "Edge";
+        } else if (userAgent.includes("Brave")) {
+            return "Brave";
+        } else if (userAgent.includes("Firefox")) {
+            return "Firefox";
+        }else {
+            return "Chrome";
+        }
+    }
+
+    // Call the specific browser function
+    switch (browser) {
+        case "Chrome":
+            loadFullMapScriptChrome();
+            console.log("chrome browser")
+            break;
+        case "Safari":
+            loadFullMapScriptSafari();
+            break;
+        case "Edge":
+            loadFullMapScriptEdge();
+            break;
+        case "Brave":
+            loadFullMapScriptBrave();
+            break;
+        case "Firefox":
+            loadFullMapScriptFirefox();
+            break;
+    }
+    }
+    window.addEventListener('resize', function() { "use strict"; window.location.reload();});
+
+    function loadFourMapsScript() {
+            const BOUNDING_BOX = [[-125.0, 24.0], [-66.0, 49.0]];
+            for (let index = 0; index < 4; index++) {
+                const map = new mapboxgl.Map({
+                    container: 'map' + (index + 1),
+                    style: 'mapbox://styles/binitagyawali/clivtsgt400nv01qif6ja7r0m',
+                    minZoom: 3.1,
+                    attributionControl: index === 3
+                });
+                map.fitBounds(BOUNDING_BOX, {padding: 20});
+                maps.push(map);
+            }
+    }
+</script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
