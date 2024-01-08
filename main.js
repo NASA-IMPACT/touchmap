@@ -40,7 +40,7 @@ function removeMapsAndCleanLegends() {
     }
 }
 
-    let currentView = 'fullMap';
+    let currentView = 'fullMaps';
     document.getElementById('fullMapBtn').addEventListener('click', function () {
         removeMapsAndCleanLegends();
         loadFullMapScript()
@@ -58,6 +58,7 @@ function removeMapsAndCleanLegends() {
         if (currentView === 'fullMap') {
             removeMapsAndCleanLegends();
             loadFullMapScript()
+
         } else if (currentView === 'fourMaps') {
             removeMapsAndCleanLegends();
             loadFourMapsScript();

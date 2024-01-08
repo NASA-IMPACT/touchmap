@@ -116,6 +116,7 @@ export function createDropdownOptions(mapIndex) {
                         legendElement.innerHTML = '';
                         const stacColParagraph = document.createElement('p');
                         stacColParagraph.className = 'legend-stacCol';
+                        stacColParagraph.style.fontWeight= "bold";
                         stacColParagraph.textContent = `${name} - ${selected_date}`;
                         legendElement.appendChild(stacColParagraph);
 

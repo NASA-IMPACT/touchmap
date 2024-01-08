@@ -10,7 +10,7 @@ html, body {
 #container {
     display: -ms-grid;
     display: grid;
-    height: 96.1%;
+    height: 96.9%;
     width: 99.9%;
     -ms-grid-columns: 1fr 1px 1fr;
     grid-template-columns: repeat(2, 1fr);
@@ -193,7 +193,7 @@ html, body {
     cursor: move;
     resize: both;
     overflow: auto;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .legend-item {
@@ -311,8 +311,31 @@ input[type="text"] {
 
 @media (max-width: 768px) {
   .container {
-    display: none;
+    display: block;
   }
+}
+
+@media (max-width: 1024px) {
+  #container {
+    height: 90.9%;
+    width: 90.9%;
+  }
+
+    #menu {
+    width: 90.9%;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+  #container {
+    height: 90.9%;
+    width: 90.9%;
+  }
+    #menu {
+    width: 70.9%;
+    }
 }
 
 @media (min-width: 769px) {
@@ -331,4 +354,8 @@ input[type="text"] {
   .container {
     display: none;
   }
+}
+
+* {
+    box-sizing: border-box;
 }
